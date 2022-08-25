@@ -1,56 +1,37 @@
-# String Calculator Kata
+# Mars Rover Kata
 
 **Incremental Kata - no peeping ahead!**
 
 This is an incremental kata to simulate a real business situation: work your way through the steps in order, but do not read the next requirement before you have finished your current one.
 
-## Step 1
-Create a simple String calculator with a method signature:
+## Your Task
 
-    int Add(string numbers)
-The method can take up to two numbers, separated by commas, and will return their sum.
+You’re part of the team that explores Mars by sending remotely controlled vehicles to the surface of the planet. Develop an API that translates the commands sent from earth to instructions that are understood by the rover.
 
-For example “” or “1” or “1,2” as inputs.
+## Requirements
 
-For an empty string it will return 0.
+You are given the initial starting point (x,y) of a rover and the direction (N,S,E,W) it is facing.
+The rover receives a character array of commands.
 
-## Step 2
-Allow the Add method to handle an unknown amount of numbers.
+### Step 1
+Implement commands that move the rover forward/backward (f,b).
+### Step 2
+Implement commands that turn the rover left/right (l,r).
+### Step 3
+Implement wrapping at edges. But be careful, planets are spheres. Connect the x edge to the other x edge, so (1,1) for x-1 to (5,1), but connect vertical edges towards themselves in inverted coordinates, so (1,1) for y-1 connects to (5,1).
+### Step 4
+Implement obstacle detection before each move to a new square. If a given sequence of commands encounters an obstacle, the rover moves up to the last possible point, aborts the sequence and reports the obstacle.
 
-## Step 3
-Allow the Add method to handle new lines between numbers (instead of commas):
+## Rules
 
-The following input is ok: “1\n2,3” (will equal 6)
-
-The following input is NOT ok: “1,\n” (not need to prove it - just clarifying)
-
-## Step 4
-Support different delimiters:
-
-To change a delimiter, the beginning of the string will contain a separate line that looks like this: “//[delimiter]\n[numbers…]” for example “//;\n1;2” should return three where the default delimiter is ‘;’.
-
-The first line is optional. All existing scenarios should still be supported.
-
-## Step 5
-Calling Add with a negative number will throw an exception “negatives not allowed” - and the negative that was passed.
-
-If there are multiple negatives, show all of them in the exception message.
-
-## Step 6
-Numbers bigger than 1000 should be ignored, so adding 2 + 1001 = 2
-
-## Step 7
-Delimiters can be of any length with the following format: “//[delimiter]\n” for example: “//[***]\n1***2***3” should return 6.
-
-## Step 8
-Allow multiple delimiters like this: “//[delim1][delim2]\n” for example “//[*][%]\n1*2%3” should return 6.
-
-## Step 9
-Make sure you can also handle multiple delimiters with length longer than one char.
+Hardcore TDD. No Excuses!
+Change roles (driver, navigator) after each TDD cycle.
+No red phases while refactoring.
+Be careful about edge cases and exceptions. We can not afford to lose a mars rover, just because the developers overlooked a null pointer.
 
 ## Credits
 
 [Starter project](https://hoangdv.medium.com/tdd-with-typescript-and-jest-starter-project-cca94fd089f5)
 
-[String kata](https://kata-log.rocks/string-calculator-kata)
+[Mars rover kata](https://kata-log.rocks/string-calculator-kata)
 
