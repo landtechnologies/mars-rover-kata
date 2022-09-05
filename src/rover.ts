@@ -4,10 +4,8 @@ enum Orientation {
   South,
   West,
 }
-class Rover {
+export class Rover {
+  constructor(x: number, y: number, orientation: Orientation) {}
 
-  constructor(x: number, y: number, orientation: Orientation) {
- 
-  }
-
+  move(command: string) {}
 }
